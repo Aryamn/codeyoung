@@ -1,4 +1,6 @@
 const Cache = require('lru-cache-node');
+
+//intializing database with 10 rows (developer can change according to memory provided)
 const cache = new Cache(10);
 
 function cacheData(req,res,next)
@@ -29,4 +31,5 @@ function cacheData(req,res,next)
     }
 }
 
+//exporitng cacheData function to be used by translate.js
 module.exports = cacheData;
