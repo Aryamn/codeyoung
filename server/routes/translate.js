@@ -4,7 +4,7 @@ const router = express.Router();
 const googleTranslate = require('@vitalets/google-translate-api');
 
 
-router.get('/translate',cache(10),async(req,res,next)=>{
+router.get('/translate',cache,async(req,res,next)=>{
     var queryResponse = {}
     try{
         const answer = await googleTranslate(req.query.sourceText, {to: req.query.targetLanguage});

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server",
     "devStart": "nodemon server"
   },
@@ -16,9 +16,12 @@
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "jest": "^27.5.1",
+    "lru-cache-node": "^1.1.0",
     "mongoose": "^6.2.4",
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

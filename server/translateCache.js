@@ -1,12 +1,14 @@
-const NodeCache = require('node-cache');
-const cache = new NodeCache({ stdTTL: 100});
+const Cache = require('lru-cache-node');
+const cache = new Cache(10);
 
-module.exports = duration => (req,res,next) => {
+function cacheData(req,res,next)
+{
     //if req is not GET
     if(req.method !== 'GET') {
         console.error('Cannot cache non-GET methods!');
         return next();
     }
+
     //check if key exists in cache
     const key = req.originalUrl;
     const cacheResponse = cache.get(key);
@@ -21,8 +23,10 @@ module.exports = duration => (req,res,next) => {
         res.originalSend = res.send;
         res.send = body => {
             res.originalSend(body);
-            cache.set(key, body, duration);
+            cache.set(key, body);
         };
         return next();
     }
 }
+
+module.exports = cacheData;

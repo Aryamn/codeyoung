@@ -13,7 +13,7 @@ app.use('/',translateRoute);
 
 //ask this
 app.use((req,res,next) => {
-    const error = new Error('Not Found!');
+    const error = new Error('Go to <url>/translate?sourceText=&targetLanguage=');
     error.status = 400;
     next(error);
 });
