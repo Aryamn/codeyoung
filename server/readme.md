@@ -1,8 +1,8 @@
 # Tech Stack Used
-Node.js and Express.js  
-lru-cache-node  
-google-translate api  
-Jest and Supertest for testing  
+1. Node.js and Express.js  
+2. lru-cache-node  
+3. google-translate api  
+4. Jest and Supertest for testing  
 
 # Installation
 Run ```npm install``` for installing dependicies  
@@ -17,6 +17,11 @@ Type ```http://localhost:3001/translate?sourceText=""&targetLanguage=""``` in th
 
 # Database Schema
 Used [lru-cache-node](https://www.npmjs.com/package/lru-cache-node) for database. It is a non-persistent storage using least recently used policy. It uses doubly linked list to implement least recently used cache. It fetches data on an average of O(1).
+
+# Desing explanation
+1. Paritioned code into different files and folder to provide more readablity and easy to extend.
+2. Used lru cache which fetched data in O(1) for near optimal caching using lru-cache-node.  
+3. Done proper error handling to dispaly any error while using exposing the api   
 
 # Evaluation
 With cache miss the fetching of data was taking time in the order of 1000ms whereas with cache hits it was taking time in the order of 10ms.
